@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Delivery Express</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <body style="background-image: url('the\ car.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #f0f0f0;"></body>
+    <nav>
+        <h2 class="logo lu">roldans express</h2> 
+        <a href="pogi.html">Home</a> 
+        <a href="101.html">Services</a>
+        <a href="website.html">about us and Contact</a>
+
+
+    </nav>
+    <div class="center">
+        <div class="cart-item">
+            <input type="checkbox" id="thisTruck" name="thisTruck" data-price="2000">
+            <label for="thisTruck">This Truck - ₱2000</label>
+        </div>
+        <div class="cart-item">
+            <input type="checkbox" id="thatTruck" name="thatTruck" data-price="1000">
+            <label for="thatTruck">That Truck - ₱1000</label>
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+        <div class="cart-item">
+            <input type="checkbox" id="anotherTruck1" name="anotherTruck1" data-price="500">
+            <label for="anotherTruck1">Another Truck - ₱500</label>
+        </div>
+        <div class="cart-item">
+            <input type="checkbox" id="anotherTruck2" name="anotherTruck2" data-price="700">
+            <label for="anotherTruck2">Another Truck - ₱700</label>
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+        <div class="cart-item">
+            <input type="checkbox" id="anotherTruck2" name="anotherTruck2" data-price="400">
+            <label for="anotherTruck2">Another Truck - ₱400</label>
+        </div>
+        <div class="cart-item">
+            <input type="checkbox" id="anotherTruck2" name="anotherTruck2" data-price="200">
+            <label for="anotherTruck2">Another Truck - ₱200</label>
+        </div>
+        <br><br><br><br><br><br><br>
+        <div class="cart-item">
+            <input type="checkbox" id="anotherTruck2" name="anotherTruck2" data-price="500">
+            <label for="anotherTruck2">Another Truck - ₱500</label>
+        </div>
+        <div class="cart-item">
+            <input type="checkbox" id="anotherTruck2" name="anotherTruck2" data-price="300">
+            <label for="anotherTruck2">Another Truck - ₱300</label>
+        </div>
+        
+        <div class="total">
+            <h2>Total: $<span id="totalAmount">0</span></h2>
+        </div>
+    </div>
+    <button id="orderButton">Order Now</button>
+</div>
+    </div>
+    
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const totalElement = document.getElementById('totalAmount');
+        const orderButton = document.getElementById('orderButton'); 
+    
+        function calculateTotal() {
+            let total = 0;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    total += parseInt(checkbox.getAttribute('data-price'));
+                }
+            });
+            totalElement.textContent = total.toLocaleString(); 
+        }
+    
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', calculateTotal);
+        });
+    
+        orderButton.addEventListener('click', function() {
+            const totalAmount = totalElement.textContent; 
+            const confirmationMessage = `Your order total is ₱${totalAmount}. Do you want to proceed with the order?`;
+    
+            if (confirm(confirmationMessage)) {
+                alert('Your order has been placed successfully!');
+                
+            } else {
+                alert('Order cancelled.');
+            }
+        });
+    </script>
+    
+    <footer id="contact">
+        <div class="container">
+            <p>Contact us for more information:</p>
+            <p>Email: roldab b bangibangyahoo.com</p>
+            <p>Phone: 09099900989</p>
+        </div>
+    </footer>
+</html>
